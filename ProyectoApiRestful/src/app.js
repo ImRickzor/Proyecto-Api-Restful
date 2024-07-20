@@ -5,6 +5,9 @@ import cliente from "./routes/cliente.routes";
 import detallecompra from "./routes/detallecompra.routes";
 import orden from "./routes/orden.routes"; 
 import producto from "./routes/producto.routes";
+import validateToken from "./middleware/validateToken"
+
+
 
 const app = express();
 
@@ -14,6 +17,7 @@ app.set("port",4000);
 //Middlewares
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(validateToken);
 
 //Routes
 app.use(categoria);
